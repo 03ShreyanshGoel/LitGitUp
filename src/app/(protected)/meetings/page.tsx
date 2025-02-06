@@ -52,7 +52,6 @@ const MeetingsPage = () => {
                                 }
                             })}>Delete Meeting</Button>
                         </div>
-
                     </li>
                 ))}
             </ul>
