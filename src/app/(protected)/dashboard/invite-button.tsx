@@ -25,7 +25,7 @@ const InviteButton = () => {
                         value={`${window.location.origin}/join/${projectId}`}></Input>
                 </DialogContent>
             </Dialog>
-            <Button onClick={() => setOpen(true)}>Invite Members</Button>
+            <Button size='sm' onClick={() => setOpen(true)}>Invite Members</Button>
         </>
     )
 }
