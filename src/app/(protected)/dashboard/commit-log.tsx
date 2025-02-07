@@ -34,7 +34,7 @@ const CommitLog = () => {
                                     {commit.commitMessage}
                                 </span>
                                 <pre className='mt-2 whitespace-pre-wrap text-sm leading-6 text-gray-500'>
-                                    {commit.summary || "wtf"}
+                                    {commit.summary || ""}
                                 </pre>
                             </div>
                         </>

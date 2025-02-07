@@ -64,12 +64,10 @@ const MeetingCard = () => {
         multiple: false,
         maxSize: 50_000_000,
         onDrop: async (acceptedFiles) => {
-            const file = acceptedFiles[0];
-            if (!file) {
-                toast.error("No file selected. Please try again.");
-                return;
-            }
+            if (!project) return
             setIsUploading(true);
+            const file = acceptedFiles[0];
+            if (!file) return;
             const downloadUrl = await uploadFile({ file, setProgress });
             uploadMeeting.mutate({
                 projectId: project.projectId,
@@ -83,8 +81,8 @@ const MeetingCard = () => {
                         meetingId: meeting.id,
                         projectId: project.projectId
                     });
-                    refetch();
                     router.push("/meetings");
+                    refetch();
                 },
                 onError: () => {
                     toast.error("Failed to upload meeting");
