@@ -1,7 +1,7 @@
-'use client'
-import useProject from '@/hooks/use-project'
+'use client';
+import useProject from '@/hooks/use-project';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import React, { useState, useEffect } from 'react' // Import useEffect
+import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -9,23 +9,6 @@ import { Button } from '@/components/ui/button';
 const InviteButton = () => {
     const { projectId } = useProject();
     const [open, setOpen] = useState(false);
-    const [inviteLink, setInviteLink] = useState('');
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {  // Check if window is available
-            setInviteLink(`${window.location.origin}/join/${projectId}`);
-        }
-    }, [projectId]);  // Re-run when projectId changes
-
-    const handleCopyToClipboard = async () => {
-        try {
-            await navigator.clipboard.writeText(inviteLink); // Use inviteLink
-            toast.success("Copied to clipboard!");
-        } catch (err) {
-            console.error("Failed to copy to clipboard: ", err);
-            toast.error("Failed to copy to clipboard. Please try again.");
-        }
-    };
 
     return (
         <>
@@ -40,8 +23,11 @@ const InviteButton = () => {
                     <Input
                         className='mt-4'
                         readOnly
-                        onClick={handleCopyToClipboard}
-                        value={inviteLink}
+                        onClick={() => {
+                            navigator.clipboard.writeText(`${window.location.origin}/join/${projectId}`);
+                            toast.success("Copied to clipboard!");
+                        }}
+                        value={`${window.location.origin}/join/${projectId}`}
                         aria-label="Invitation Link"
                     />
                 </DialogContent>
@@ -49,6 +35,6 @@ const InviteButton = () => {
             <Button size='sm' onClick={() => setOpen(true)}>Invite Members</Button>
         </>
     );
-}
+};
 
-export default InviteButton
+export default InviteButton;
