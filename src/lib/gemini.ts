@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 import { Document } from "@langchain/core/documents"
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-preview-02-05" });
 
 export const aiSummariseCommit = async (diff: string) => {
     console.log("Starting AI summarization for git diff...");
@@ -86,14 +86,3 @@ export async function generateEmbedding(summary: string) {
         throw new Error("Failed to generate embeddings.");
     }
 }
-
-// Test example
-(async () => {
-    console.log("Testing embedding generation..."); // Log test initialization
-    try {
-        const embedding = await generateEmbedding("hello world");
-        console.log("Generated embedding:", embedding); // Log generated embedding
-    } catch (error) {
-        console.error("Error during test embedding generation:", error); // Log test error
-    }
-})();
