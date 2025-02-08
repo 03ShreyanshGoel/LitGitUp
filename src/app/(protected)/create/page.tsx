@@ -55,9 +55,14 @@ const CreatePage = () => {
     console.log("checkCredits.isPending", checkCredits.isPending)
     console.log("hasEnoughCredits", hasEnoughCredits)
     return (
-        <div className="flex items-center gap-12 h-full justify-center">
-            <img src="/undraw_github.svg" className="h-56 w-auto" />
-            <div>
+        <div className="flex flex-col sm:flex-row items-center gap-8 h-full justify-center p-4">
+            {/* Image Section */}
+            <div className="w-full sm:w-6/12 flex justify-center">
+                <img src="/undraw_version-control_eiam.svg" className="h-40 sm:h-60 w-auto" alt="GitHub Illustration" />
+            </div>
+
+            {/* Form Section */}
+            <div className="sm:w-6/12">
                 <div>
                     <h1 className="font-semibold text-2xl">
                         Link your Github Repository
@@ -67,52 +72,56 @@ const CreatePage = () => {
                     </p>
                 </div>
                 <div className="h-4"></div>
-                <div>
-                    <form
-                        onSubmit={(e) => {
-                            console.log('Form submission triggered') // Log form submission
-                            handleSubmit(onSubmit)(e)
-                        }}
+                <form
+                    onSubmit={(e) => {
+                        console.log('Form submission triggered')
+                        handleSubmit(onSubmit)(e)
+                    }}
+                    className="space-y-4 max-w-[400px]"
+                >
+                    <Input
+                        {...register('projectName', { required: true })}
+                        placeholder="Project Name"
+                        required
+                    />
+                    <Input
+                        {...register('repoUrl', { required: true })}
+                        placeholder="GitHub URL"
+                        required
+                    />
+                    <Input
+                        {...register('githubToken')}
+                        placeholder="GitHub Token (Optional)"
+                    />
+
+                    {/* Credits Info */}
+                    {!!checkCredits.data && (
+                        <div className='mt-4 bg-orange-50 px-4 py-2 rounded-md border border-orange-200 text-orange-700'>
+                            <div className='flex items-center gap-2'>
+                                <Info />
+                                <p className='text-sm'>
+                                    You will be charged <strong>{checkCredits.data?.fileCount}</strong> credits for this repository.
+                                </p>
+                            </div>
+                            <p className='text-sm text-blue-600 ml-6'>
+                                You have <strong>{checkCredits.data?.userCredits}</strong> credits remaining.
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Submit Button */}
+                    <Button
+                        type="submit"
+                        disabled={createProject.isPending || checkCredits.isPending || !hasEnoughCredits}
+                        className="w-full sm:w-auto"
                     >
-                        <Input
-                            {...register('projectName', { required: true })}
-                            placeholder="Project Name"
-                            required
-                        />
-                        <div className="h-2"></div>
-                        <Input
-                            {...register('repoUrl', { required: true })}
-                            placeholder="Github URL"
-                            required
-                        />
-                        <div className="h-2"></div>
-                        <Input
-                            {...register('githubToken')}
-                            placeholder="Github Token (Optional)"
-                        />
-                        {!!checkCredits.data && (
-                            <>
-                                <div className='mt-4 bg-orange-50 px-4 py-2 rounded-md border border-orange-200 text-orange-700'>
-                                    <div className='flex items-center gap-2'>
-                                        <Info className='' />
-                                        <p className='text-sm' >You will be charged <strong>{checkCredits.data?.fileCount}</strong> credits for this repository.</p>
-                                    </div>
-                                    <p className='text-sm text-blue-600 ml-6'>You have <strong>{checkCredits.data?.userCredits}</strong> credits remaining.</p>
-                                </div>
-                            </>
-                        )}
-                        <div className="h-4"></div>
-                        <Button
-                            type="submit"
-                            disabled={createProject.isPending || checkCredits.isPending || !hasEnoughCredits}
-                        >
-                            {!!checkCredits.data ? 'Create Project' : 'Check Credits'}
-                        </Button>
-                    </form>
-                </div>
+                        {!!checkCredits.data ? 'Create Project' : 'Check Credits'}
+                    </Button>
+                </form>
             </div>
         </div>
     )
+
 }
 
 export default CreatePage

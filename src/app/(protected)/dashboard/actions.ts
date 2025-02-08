@@ -6,7 +6,7 @@ import { generateEmbedding } from '@/lib/gemini'
 import { db } from '@/server/db'
 
 const google = createGoogleGenerativeAI({
-    apiKey: process.env.GEMINI_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
 })
 
 export async function askQuestion(question: string, projectId: string) {

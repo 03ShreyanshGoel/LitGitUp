@@ -1,5 +1,5 @@
 import { AssemblyAI } from 'assemblyai'
-const client = new AssemblyAI({ apiKey: process.env.ASSEMBLYAI_API_KEY! })
+const client = new AssemblyAI({ apiKey: process.env.NEXT_PUBLIC_ASSEMBLYAI_API_KEY! })
 function msToTime(ms: number) {
     const seconds = ms / 1000
     const minutes = Math.floor(seconds / 60)
