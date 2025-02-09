@@ -24,7 +24,7 @@ const SidebarLayout = ({ children }: Props) => {
                         </SidebarTrigger>
 
                         {/* User Button */}
-                        <UserButton afterSignOutUrl="/sign-in"/>
+                        <UserButton />
                     </div>
 
                     {/* Spacer */}
