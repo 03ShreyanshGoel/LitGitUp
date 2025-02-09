@@ -1,6 +1,10 @@
 'use client'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { UserButton } from '@clerk/nextjs';
+import dynamic from 'next/dynamic'
+const UserButton = dynamic(() =>
+    import('@clerk/nextjs').then((mod) => mod.UserButton),
+    { ssr: false }
+);
 import { AppSidebar } from './dashboard/app-sidebar';
 
 type Props = {

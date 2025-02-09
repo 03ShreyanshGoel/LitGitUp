@@ -7,7 +7,7 @@ export const projectRouter = createTRPCRouter({
     createProject: protectedProcedure.input(
         z.object({
             name: z.string(),
-            githubUrl: z.string(),
+            githubUrl: z.string().url(),
             githubToken: z.string().optional(),
         })
     ).mutation(async ({ ctx, input }) => {
