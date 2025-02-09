@@ -10,7 +10,7 @@ LitGitUp is a powerful **Software-as-a-Service (SaaS)** platform designed to ana
    - 🧠 Provides context-aware responses with code references.
    - 📈 Utilizes LangChain and Gemini for vector-based search, enabling intelligent query results.
 
-2. **🎙️ Meeting Issue Generation:**
+2. **🎹 Meeting Issue Generation:**
    - 📤 Upload MP3 or MP4 files of your meetings.
    - 📝 Automatically generates issues and action items based on the meeting content using AI-driven transcription and analysis.
 
@@ -24,11 +24,11 @@ LitGitUp is a powerful **Software-as-a-Service (SaaS)** platform designed to ana
 
 ## Tech Stack 🛠️
 - **Frontend:** Next.js, TypeScript, React ⚛️
-- **Backend:** tRPC, Prisma, PostgreSQL (Neon) 🗔️
+- **Backend:** tRPC, Prisma, PostgreSQL (Neon) 🔔️
 - **AI Integration:** LangChain, Gemini-2.0-Flash Lite, AssemblyAI 🤖
 
 ## Deployment 🌐
-LitGitUp is **deployed on Vercel**, leveraging Vercel's built-in **Continuous Integration and Continuous Deployment (CI/CD)** pipeline. This ensures that every push to the connected GitHub repository triggers an automatic build and deployment process, resulting in seamless and efficient delivery of updates to the production environment.
+LitGitUp is **deployed on Vercel** at [https://litgitup.vercel.app](https://litgitup.vercel.app), leveraging Vercel's built-in **Continuous Integration and Continuous Deployment (CI/CD)** pipeline. This ensures that every push to the connected GitHub repository triggers an automatic build and deployment process, resulting in seamless and efficient delivery of updates to the production environment.
 
 ## Environment Variables 🔐
 To run LitGitUp, you'll need to configure the following environment variables in your `.env` file:
@@ -72,7 +72,7 @@ Ensure all keys are correctly set for the application to function smoothly.
 
 ## Installation 🖥️
 
-1. **📅 Clone the Repository:**
+1. **🗕️ Clone the Repository:**
    ```bash
    git clone https://github.com/03ShreyanshGoel/LitGitUp.git
    cd LitGitUp
@@ -100,7 +100,7 @@ Ensure all keys are correctly set for the application to function smoothly.
 ## Usage 💡
 - **📊 Commit Analysis:** Connect your GitHub repository and view detailed commit summaries.
 - **🔎 Vector Search:** Use the AI-powered search to find relevant code snippets and documentation.
-- **🎙️ Meeting Transcriptions:** Upload your meeting recordings and generate actionable issues directly in your repository.
+- **🎹 Meeting Transcriptions:** Upload your meeting recordings and generate actionable issues directly in your repository.
 - **👥 Project Collaboration:** Invite members to your projects and manage their contributions effectively.
 
 ## Contribution ✨
