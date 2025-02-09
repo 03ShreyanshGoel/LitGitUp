@@ -1,7 +1,6 @@
 import { db } from '@/server/db'
 import { auth, clerkClient } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'  // Correct import for redirect
-import React from 'react'
 
 type Props = {
     params: Promise<{ projectId: string }>

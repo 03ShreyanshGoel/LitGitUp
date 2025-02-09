@@ -1,3 +1,4 @@
+'use client'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { UserButton } from '@clerk/nextjs';
 import { AppSidebar } from './dashboard/app-sidebar';

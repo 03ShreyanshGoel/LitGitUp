@@ -2,7 +2,6 @@ import { pollCommits } from "@/lib/github";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { z } from "zod";
 import { checkCredits, indexGithubRepo } from "@/lib/github-loader";
-import { CopyX } from "lucide-react";
 
 export const projectRouter = createTRPCRouter({
     createProject: protectedProcedure.input(
